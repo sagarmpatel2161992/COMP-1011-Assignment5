@@ -1,3 +1,4 @@
+<!--  LAyout for application setted to tablelayout -->
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -5,16 +6,12 @@
     android:textAlignment="center"
      >
 
-    
-
-    
-    
-
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
         
+        <!-- Toogle button to select between imperial and Metric unit -->
         <ToggleButton
         android:id="@+id/toggleButton1"
         android:layout_width="wrap_content"
@@ -25,11 +22,11 @@
     </TableRow>
 
     
-
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        <!-- Textview for Height -->
         <TextView
         android:id="@+id/textViewheight"
         android:layout_width="wrap_content"
@@ -43,6 +40,7 @@
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        <!-- Textbox for height -->
         <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -53,6 +51,7 @@
         <requestFocus />
     </EditText>
 
+        <!-- Textview for height unit -->
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -66,6 +65,7 @@
         android:id="@+id/tableRow4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        <!-- Textview for weight -->
         <TextView
         android:id="@+id/textViewweight"
         android:layout_width="wrap_content"
@@ -77,13 +77,14 @@
         android:id="@+id/tableRow5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        <!-- Textbox for weight -->
         <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal" />
-
+		<!-- Textview for weight unit -->
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -96,7 +97,7 @@
         android:id="@+id/tableRow6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
-
+		<!-- Button to calculate BMI -->
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"

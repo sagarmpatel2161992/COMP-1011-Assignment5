@@ -14,6 +14,7 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends ActionBarActivity {
 
+	// Object Declaration
 	private TextView txt1, txt2, txt3, txt4;
 	private Button btn;
 	private EditText ed1,ed2;
@@ -35,17 +36,21 @@ public class MainActivity extends ActionBarActivity {
         
         tbtn.setOnClickListener(new OnClickListener() {
 			
+        	// Toggle button click event
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				final String change = tbtn.getText().toString();
-		        if(change.equalsIgnoreCase("metric"))
+		        // Check if metric is selected or imperial
+				if(change.equalsIgnoreCase("metric"))
 		        {
+					// Setting unit for height and width to meter and kg respectively 
 		        	txt3.setText("meter");
 		        	txt4.setText("kg");
 		        }
 				else
 				{
+					// Setting unit for height and width to inches and lbs respectively
 					txt3.setText("inches");
 					txt4.setText("lbs");
 				}
@@ -58,36 +63,50 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				// String Variable Declaration and fetching value from textbox
 				String value1=ed1.getText().toString();  
-                String value2=ed2.getText().toString(); 
-                String scale;
+                String value2=ed2.getText().toString();
+                
+                // converting height and width to double
                 double height = Double.parseDouble(value1);  
                 double weight = Double.parseDouble(value2); 
+                
+                //BMI Declaration 
                 double BMI;    
-                final String tcheck = tbtn.getText().toString();
-				if(tcheck.equalsIgnoreCase("imperial"))
+                // 
+                final String textcheck = tbtn.getText().toString();
+				
+                // Condition to check if units are imperial or matric
+                if(textcheck.equalsIgnoreCase("imperial"))
                 {
+                	//  equation for Imperial 
                  BMI = (weight * 703)/(height*height);
                 }
 				else
 				{
+				//  equation for Metric 
 					BMI = weight/(height*height);
 				}
+                // Conditions to check BMI Scale
 				if(BMI < 18.5)
 				{
+					// print if its under weight
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nUnderweight",Toast.LENGTH_LONG).show();
 				 
-				}
+				}				
 				else if(BMI >= 18.5 && BMI < 24.9)
 				{
+					// print if its Normal
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nNormal",Toast.LENGTH_LONG).show();
 				}
 				else if(BMI>= 25 && BMI < 29.9 )
 				{
+					// print if its Over weight
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nOverweight",Toast.LENGTH_LONG).show();
 				}
 				else if(BMI >= 30)
 				{
+					// print if its Obese
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nObese",Toast.LENGTH_LONG).show();
 				}
                  
