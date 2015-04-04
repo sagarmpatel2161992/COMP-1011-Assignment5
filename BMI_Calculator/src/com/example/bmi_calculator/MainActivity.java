@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
 	// Object Declaration
 	private TextView txt1, txt2, txt3, txt4, txterror1, txterror2;
 	private Button btn,btnreset;
-	private EditText ed1,ed2;
+	private EditText ed1,ed2,edmulti;
 	private ToggleButton tbtn;
 
     @Override
@@ -46,7 +46,9 @@ public class MainActivity extends ActionBarActivity {
         btnreset = (Button)findViewById(R.id.button2);
         ed1 = (EditText)findViewById(R.id.editText1);
         ed2 = (EditText)findViewById(R.id.editText2);
+        edmulti = (EditText)findViewById(R.id.editText3);
         tbtn = (ToggleButton)findViewById(R.id.toggleButton1);
+        edmulti.setVisibility(View.INVISIBLE);
         
         tbtn.setOnClickListener(new OnClickListener() {
 			
@@ -108,22 +110,34 @@ public class MainActivity extends ActionBarActivity {
 				if(BMI < 18.5)
 				{
 					// print if its under weight
+					edmulti.setText(BMI + "\nUnderweight less than 18.5");
+					edmulti.setVisibility(View.VISIBLE);
+					edmulti.setKeyListener(null);
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nUnderweight",Toast.LENGTH_LONG).show();
 				 
 				}				
 				else if(BMI >= 18.5 && BMI < 24.9)
 				{
 					// print if its Normal
+					edmulti.setText(BMI + "\nNormal between 18.5 and 24.9");
+					edmulti.setVisibility(View.VISIBLE);
+					edmulti.setKeyListener(null);
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nNormal",Toast.LENGTH_LONG).show();
 				}
 				else if(BMI>= 25 && BMI < 29.9 )
 				{
 					// print if its Over weight
+					edmulti.setText(BMI + "\nOverweight between 25 and 29.9");
+					edmulti.setVisibility(View.VISIBLE);
+					edmulti.setKeyListener(null);
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nOverweight",Toast.LENGTH_LONG).show();
 				}
 				else if(BMI >= 30)
 				{
 					// print if its Obese
+					edmulti.setText(BMI + "\nObese 30 or greater");
+					edmulti.setVisibility(View.VISIBLE);
+					edmulti.setKeyListener(null);
 					Toast.makeText(getApplicationContext(),String.valueOf(BMI) + "\n\nObese",Toast.LENGTH_LONG).show();
 				}
                  
