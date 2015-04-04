@@ -1,4 +1,10 @@
-<!--  LAyout for application setted to tablelayout -->
+<!-- 
+ Application Name: BMI Calculator Application
+ Programmer: Sagar Patel
+ Description : BMI Calculator using height and weight
+ Date: 4/3/2015
+   -->
+ <!--  LAyout for application setted to tablelayout -->
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -58,6 +64,12 @@
             android:layout_height="wrap_content"
             android:text="inches" />
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
     </TableRow>
 
    
@@ -90,6 +102,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="lbs" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
         
     </TableRow>
 
@@ -106,4 +124,16 @@
         
     </TableRow>
 
+    <TableRow
+        android:id="@+id/tableRow7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+		<!-- Button to calculate BMI -->
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESET" />
+        
+    </TableRow>
 </TableLayout>

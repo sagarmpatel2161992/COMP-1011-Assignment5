@@ -1,6 +1,15 @@
+/*
+ Application Name: BMI Calculator Application
+ Programmer: Sagar Patel
+ Description : BMI Calculator using height and weight
+ Date: 4/3/2015
+  */
 package com.example.bmi_calculator;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +24,8 @@ import android.widget.ToggleButton;
 public class MainActivity extends ActionBarActivity {
 
 	// Object Declaration
-	private TextView txt1, txt2, txt3, txt4;
-	private Button btn;
+	private TextView txt1, txt2, txt3, txt4, txterror1, txterror2;
+	private Button btn,btnreset;
 	private EditText ed1,ed2;
 	private ToggleButton tbtn;
 
@@ -24,12 +33,17 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+        final Bundle temp = savedInstanceState;
         txt1 = (TextView)findViewById(R.id.textViewheight);
+        txt1.setTextColor(Color.parseColor("#FF0000"));
         txt2 = (TextView)findViewById(R.id.textViewweight);
+        txt2.setTextColor(Color.parseColor("#FF0000"));
         txt3 = (TextView)findViewById(R.id.textView1);
         txt4 = (TextView)findViewById(R.id.textView2);
+        txterror1 = (TextView)findViewById(R.id.textView3);
+        txterror2 = (TextView)findViewById(R.id.textView4);
         btn = (Button)findViewById(R.id.button1);
+        btnreset = (Button)findViewById(R.id.button2);
         ed1 = (EditText)findViewById(R.id.editText1);
         ed2 = (EditText)findViewById(R.id.editText2);
         tbtn = (ToggleButton)findViewById(R.id.toggleButton1);
@@ -40,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
 				final String change = tbtn.getText().toString();
 		        // Check if metric is selected or imperial
 				if(change.equalsIgnoreCase("metric"))
@@ -64,12 +79,14 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// String Variable Declaration and fetching value from textbox
-				String value1=ed1.getText().toString();  
-                String value2=ed2.getText().toString();
+				String value1=ed1.getText().toString().trim();  
+                String value2=ed2.getText().toString().trim();
                 
+                               
                 // converting height and width to double
                 double height = Double.parseDouble(value1);  
                 double weight = Double.parseDouble(value2); 
+                
                 
                 //BMI Declaration 
                 double BMI;    
@@ -111,7 +128,20 @@ public class MainActivity extends ActionBarActivity {
 				}
                  
 			}
+           
 		});
+        
+        btnreset.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ed1.setText(null);
+				ed2.setText(null);
+				
+			}
+		});
+        
+        
     }
 
 
